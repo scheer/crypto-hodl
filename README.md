@@ -1,4 +1,4 @@
-# crypto-hodl
+# Crypto HODL
 Your private and simple crypto portfolio manager
 
 ### Design Goals
