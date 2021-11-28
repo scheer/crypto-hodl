@@ -19,7 +19,15 @@ Copy the resulting .jar file from the /target folder to a destination folder of 
 
 `java –jar cryptohodl.jar`
 
-The web application runs on port 8080. After start, enter and test your SMTP settings. Then add your purchases. The content of the created /data folder contains your data and can be backed up and restored.
+The web application runs on port 8080.
+
+### Basic Usage
+
+First, add your crypto purchases. Each purchase consists of a crypto symbol, an amount, the invest and the date. The portfolio will be calculated based on your purchases.
+
+The content of the created /data folder contains your data and can be backed up and restored.
+
+For the mail report to function, you must enter and test your SMTP settings.
 
 ### Roadmap
 * Full i18n for German and English, EUR and USD
