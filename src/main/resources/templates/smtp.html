@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Crypto-HODL - Purchases</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/styles/w3.css}" rel="stylesheet" />
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/purchase.js}"></script>
+</head>
+<body>
+
+    <!--Duplicated block-->
+    <div class="w3-sidebar w3-bar-block w3-card" style="width:20%">
+        <div class="w3-container" style="padding-bottom: 5px; padding-top: 20px;">
+            <span class="w3-tag w3-medium">C</span>
+            <span class="w3-tag w3-medium">R</span>
+            <span class="w3-tag w3-medium">Y</span>
+            <span class="w3-tag w3-medium">P</span>
+            <span class="w3-tag w3-medium">T</span>
+            <span class="w3-tag w3-medium">O</span>
+        </div>
+        <div class="w3-container" style="padding-bottom: 30px; padding-top: 5px; padding-left: 30px;">
+            <span class="w3-tag w3-xlarge">H</span>
+            <span class="w3-tag w3-xlarge">O</span>
+            <span class="w3-tag w3-xlarge">D</span>
+            <span class="w3-tag w3-xlarge">L</span>
+        </div>
+        <a href="/portfolio" class="w3-bar-item w3-button">Portfolio</a>
+        <a href="/purchases" class="w3-bar-item w3-button">Purchases</a>
+        <a href="/smtp" class="w3-bar-item w3-button">Smtp</a>
+    </div>
+
+    <div style="margin-left:20%">
+
+    <div class="w3-container">
+        <h3 th:text="SMTP" />
+    </div>
+
+    <div class="w3-container">
+
+    <form class="w3-container" action="#" th:action="@{/saveSmtp}" th:object="${smtpDto}" method="post">
+        <table border="1">
+            <tr>
+                <td><label>Server</label></td>
+                <td><input type="text" th:field="*{server}" required="required" /></td>
+            </tr>
+            <tr>
+                <td><label>Port</label></td>
+                <td><input type="number" th:field="*{port}" required="required" /></td>
+            </tr>
+            <tr>
+                <td><label>User</label></td>
+                <td><input type="text" th:field="*{user}" required="required" /></td>
+            </tr>
+            <tr>
+                <td><label>Password</label></td>
+                <td><input type="password" th:field="*{pwd}" required="required" /></td>
+            </tr>
+            <tr>
+                <td><label>Mail To Address</label></td>
+                <td><input type="text" th:field="*{mailTo}" required="required" /></td>
+            </tr>
+        </table>
+
+        <input type="submit" value="Save" style="margin-top: 10px;" class="w3-button w3-round-large w3-black" />
+
+        <a th:href="@{/testSmtp}" style="margin-top: 10px; margin-left: 150px;" class="w3-button w3-round-large w3-black" />
+            Test Mail
+        </a>
+
+    </form>
+
+    </div>
+
+</body>
+</html>

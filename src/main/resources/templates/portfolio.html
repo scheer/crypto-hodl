@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Crypto-HODL - Portfolio</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/styles/w3.css}" rel="stylesheet" />
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+</head>
+<body>
+
+    <!--Duplicated block-->
+    <div class="w3-sidebar w3-bar-block w3-card" style="width:20%">
+        <div class="w3-container" style="padding-bottom: 5px; padding-top: 20px;">
+            <span class="w3-tag w3-medium">C</span>
+            <span class="w3-tag w3-medium">R</span>
+            <span class="w3-tag w3-medium">Y</span>
+            <span class="w3-tag w3-medium">P</span>
+            <span class="w3-tag w3-medium">T</span>
+            <span class="w3-tag w3-medium">O</span>
+        </div>
+        <div class="w3-container" style="padding-bottom: 30px; padding-top: 5px; padding-left: 30px;">
+            <span class="w3-tag w3-xlarge">H</span>
+            <span class="w3-tag w3-xlarge">O</span>
+            <span class="w3-tag w3-xlarge">D</span>
+            <span class="w3-tag w3-xlarge">L</span>
+        </div>
+        <a href="/portfolio" class="w3-bar-item w3-button">Portfolio</a>
+        <a href="/purchases" class="w3-bar-item w3-button">Purchases</a>
+        <a href="/smtp" class="w3-bar-item w3-button">Smtp</a>
+    </div>
+
+    <div style="margin-left:20%">
+
+    <div class="w3-container">
+        <h3 th:text="Portfolio" />
+    </div>
+
+    <div class="w3-container">
+        <table class="w3-table w3-striped w3-bordered w3-border">
+            <thead>
+                <th>Symbol</th>
+                <th>Amount</th>
+                <th>Value (EUR)</th>
+                <th>Rise or Fall (%)</th>
+            </thead>
+            <tbody>
+                <tr th:each="item: ${items}">
+                    <td th:text="${item.cryptoSymbol}" />
+                    <td th:text="${#numbers.formatDecimal(item.currentAmount, 1, 'POINT', 6, 'COMMA')}"></td>
+                    <td th:text="${#numbers.formatDecimal(item.currentValue, 1, 'POINT', 2, 'COMMA')}"></td>
+                    <td th:text="${#numbers.formatDecimal(item.currentRiseOrFall, 1, 'POINT', 0, 'COMMA')}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="w3-container">
+        <h3>Current Investment: <span th:text="${#numbers.formatDecimal(currentInvestment, 0, 'POINT', 2, 'COMMA')}" /> EUR</h3>
+        <h3>Current Value: <span th:text="${#numbers.formatDecimal(currentValue, 0, 'POINT', 2, 'COMMA')}" /> EUR</h3> 
+    </div>
+
+    </div>  
+
+</body>
+</html>

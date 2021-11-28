@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Crypto-HODL - Purchases</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/styles/w3.css}" rel="stylesheet" />
+    <link th:href="@{/styles/main.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/purchase.js}"></script>
+</head>
+<body>
+
+    <!--Duplicated block-->
+    <div class="w3-sidebar w3-bar-block w3-card" style="width:20%">
+        <div class="w3-container" style="padding-bottom: 5px; padding-top: 20px;">
+            <span class="w3-tag w3-medium">C</span>
+            <span class="w3-tag w3-medium">R</span>
+            <span class="w3-tag w3-medium">Y</span>
+            <span class="w3-tag w3-medium">P</span>
+            <span class="w3-tag w3-medium">T</span>
+            <span class="w3-tag w3-medium">O</span>
+        </div>
+        <div class="w3-container" style="padding-bottom: 30px; padding-top: 5px; padding-left: 30px;">
+            <span class="w3-tag w3-xlarge">H</span>
+            <span class="w3-tag w3-xlarge">O</span>
+            <span class="w3-tag w3-xlarge">D</span>
+            <span class="w3-tag w3-xlarge">L</span>
+        </div>
+        <a href="/portfolio" class="w3-bar-item w3-button">Portfolio</a>
+        <a href="/purchases" class="w3-bar-item w3-button">Purchases</a>
+        <a href="/smtp" class="w3-bar-item w3-button">Smtp</a>
+    </div>
+
+    <div style="margin-left:20%">
+
+    <div class="w3-container">
+        <h3 th:text="Purchases" />
+    </div>
+
+    <div class="w3-container">
+    <table class="w3-table w3-striped w3-bordered w3-border">
+        <thead>
+            <th>Symbol</th>
+            <th>Amount</th>
+            <th>Invest (EUR)</th>
+            <th>Time</th>
+        </thead>
+        <tbody>
+            <tr th:each="purchase: ${purchases}">
+                <td th:text="${purchase.symbol}" />
+                <td th:text="${#numbers.formatDecimal(purchase.amount, 1, 'POINT', 6, 'COMMA')}" />
+                <td th:text="${#numbers.formatDecimal(purchase.totalFee, 1, 'POINT', 2, 'COMMA')}" />
+                <td th:text="${purchase.dateTime.toLocalDateTime}"/>
+                <!--see: https://stackoverflow.com/questions/43606063/spring-thymeleaf-delete-object-from-html-table-and-pass-id-to-controller-->
+                <td>
+                    <a th:href="@{/deletePurchase(uuid=${purchase.uuid})}"
+                    class="w3-button w3-round-large w3-black" style="padding-top: 2px; padding-bottom: 2px; padding-left: 10px; padding-right: 10px;">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+
+    <br/>
+
+    <form class="w3-container" action="#" th:action="@{/savePurchase}" th:object="${purchaseDto}" method="post">
+        <table border="1">
+            <tr>
+                <td><label>Symbol</label></td>
+                <td>
+                    <select name="symbol">
+                        <option th:each="symbolOpt : ${T(net.muchoviento.cryptohodl.model.CryptoSymbol).values()}" 
+                            th:field="*{symbol}" th:value="${symbolOpt}" th:text="${symbolOpt.name} + ' (' + ${symbolOpt} +')'"></option>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td><label>Amount</label></td>
+                <td><input type="number" step=0.0000001 th:field="*{amount}" /></td>
+            </tr>
+            <tr>
+                <td><label>Invest (EUR)</label></td>
+                <td><input type="number" step=0.01 th:field="*{totalFee}" /></td>
+            </tr>
+            <tr>
+                <td><label>Time</label></td>
+                <td><input type="date" th:field="*{dateTime}" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+
+    </div>
+
+</body>
+</html>
