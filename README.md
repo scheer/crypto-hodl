@@ -6,6 +6,7 @@ Your private and simple crypto portfolio manager
 
 ### Features
 * Monitor the worth of your crypto purchases (your portfolio)
+* Queries live crypto price data
 * Receive a daily or weekly portfolio report per mail
 
 ### Deployment as Java .jar file
