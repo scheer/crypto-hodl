@@ -39,7 +39,9 @@ public class PurchaseController {
 		purchases = purchaseDao.loadPurchases();
 		Collections.sort(purchases, new PurchaseComparator());
 		model.addAttribute("purchases", purchases);
-		model.addAttribute("purchaseDto", new PurchaseDto()); // for form initialization
+		PurchaseDto purchaseDto = new PurchaseDto(); // for form initialization
+		purchaseDto.setDateTime(LocalDate.now().toString());
+		model.addAttribute("purchaseDto", purchaseDto);
 		return "purchases";
 	}
 
