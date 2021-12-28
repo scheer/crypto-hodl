@@ -24,10 +24,12 @@ The web application runs on port 8080.
 
 ### Basic Usage
 
-First, add your crypto purchases. Each purchase consists of a crypto symbol, an amount, the invest and the date.
+First, add your crypto purchases. Each purchase consists of a crypto symbol, an amount, the invest and the date. See the Screenshot below.
+
 ![purchases](https://user-images.githubusercontent.com/876501/147583290-b9844183-e2ce-4bd5-91d3-4716958bdada.png)
 
-The portfolio will be calculated based on your purchases.
+The application will then calculate the current portfolio and its current worth based on your purchases. See the screenshot below, to get an impression.
+
 ![portfolio](https://user-images.githubusercontent.com/876501/147582920-701642fe-e36a-4f48-a21c-96bf89b00273.png)
 
 The content of the created /data folder contains your data and can be backed up and restored.
