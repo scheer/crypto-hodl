@@ -38,3 +38,6 @@ For the mail report to function, you must enter and test your SMTP settings.
 * Reminder mail, if no crypto was purchases for 6 weeks
 * Graphical Visualization for portfolio worth development
 * Watched coins: get mail alarms, if price is below some value
+
+### Disclaimer 
+I am not liable for the correctness of the aplication nor the actions performed based upon it.
