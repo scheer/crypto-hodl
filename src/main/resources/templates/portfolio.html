@@ -46,7 +46,7 @@
             <tbody>
                 <tr th:each="item: ${items}">
                     <td th:text="${item.cryptoSymbol}" />
-                    <td th:text="${#numbers.formatDecimal(item.currentAmount, 1, 'POINT', 6, 'COMMA')}"></td>
+                    <td th:text="${#numbers.formatDecimal(item.currentAmount, 1, 'POINT', 10, 'COMMA')}"></td>
                     <td th:text="${#numbers.formatDecimal(item.currentValue, 1, 'POINT', 2, 'COMMA')}"></td>
                     <td th:text="${#numbers.formatDecimal(item.currentRiseOrFall, 1, 'POINT', 0, 'COMMA')}"></td>
                 </tr>
