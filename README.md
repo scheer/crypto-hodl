@@ -9,18 +9,20 @@ Your private and simple crypto portfolio manager
 * Queries live crypto price data
 * Receive a daily or weekly portfolio report per mail
 
-### Deployment as Java .jar file
-Java 11 is required to build and run the application.
+### Build the application
+Java 11 and Apache Maven 3 are required to build and run the application.
 
 Build the application with Maven:
 
 `mvn clean install`
 
+### Run the application
+
 Copy the resulting .jar file from the /target folder to a destination folder of your choice. Start the application with:
 
 `java –jar cryptohodl.jar`
 
-The web application runs on port 8080.
+The web application runs on port 8080, so point your browser to http://localhost:8080 in order to get started.
 
 ### Basic Usage
 
